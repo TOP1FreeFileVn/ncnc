@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://cu5c2e4rtscqg"]
+
+[ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://assets/sprites/Enemies/Enemy_1.png" id="1_0x6mo"]
+[ext_resource type="PackedScene" uid="uid://cmulom061bddn" path="res://Unit/Player/unit.tscn" id="1_3kdbk"]
+[ext_resource type="Script" uid="uid://6e7kxgic3xoq" path="res://Unit/Enemy/enemy.gd" id="2_y51hu"]
+[ext_resource type="Resource" uid="uid://csnigmpvmqvya" path="res://Resource/Units/Enemies/stats_enemy_chaserslow.tres" id="3_uyiek"]
+[ext_resource type="PackedScene" uid="uid://c1etcpl2ecpy" path="res://Unit/Component/hitbox_component.tscn" id="5_fm0yt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyiek"]
+radius = 12.6491
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3kdbk"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir3so"]
+radius = 41.1096
+
+[node name="Enemy_chaser_slow" instance=ExtResource("1_3kdbk")]
+collision_layer = 2
+script = ExtResource("2_y51hu")
+flock_push = 20.0
+stats = ExtResource("3_uyiek")
+
+[node name="Sprite" parent="Visual" index="1"]
+texture = ExtResource("1_0x6mo")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -26)
+shape = SubResource("CircleShape2D_uyiek")
+debug_color = Color(0.900638, 0.306034, 0.145294, 0.42)
+
+[node name="VisionArea" type="Area2D" parent="." index="3"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0"]
+position = Vector2(0, -27)
+shape = SubResource("CircleShape2D_3kdbk")
+
+[node name="HitboxComponent" parent="." index="5" instance=ExtResource("5_fm0yt")]
+collision_layer = 4
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_ir3so")
+
+[node name="HealthBar" parent="." index="6"]
+back_color = Color(0.0156863, 0.054902, 0.168627, 1)
+fill_color = Color(0.372549, 0.537255, 0.756863, 1)

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://padabsbj8wb2"]
+
+[ext_resource type="Texture2D" uid="uid://bt0lww88864ws" path="res://assets/sprites/Players/Player_5.png" id="1_dcbqd"]
+[ext_resource type="Script" uid="uid://nc0c0h3ka844" path="res://Resource/Units/unit_stats.gd" id="2_mlxni"]
+
+[resource]
+script = ExtResource("2_mlxni")
+name = "Kinght"
+type = 0
+icon = ExtResource("1_dcbqd")
+health = 15
+health_increase_per_wave = 0.0
+damage = 3
+damage_increase_per_wave = 0.0
+speed = 300
+luck = 5.0
+block_chance = 1.0
+gold_drop = 0
+metadata/_custom_type_script = "uid://nc0c0h3ka844"

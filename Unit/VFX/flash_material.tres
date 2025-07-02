@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbkskqhhq4ufj"]
+
+[ext_resource type="Shader" uid="uid://c71o3nfay0urx" path="res://Unit/VFX/player_well_rounded.gdshader" id="1_r5vk6"]
+
+[resource]
+shader = ExtResource("1_r5vk6")

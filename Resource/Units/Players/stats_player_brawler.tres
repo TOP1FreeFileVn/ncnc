@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://csseurv1jk3yp"]
+
+[ext_resource type="Script" uid="uid://nc0c0h3ka844" path="res://Resource/Units/unit_stats.gd" id="1_qusey"]
+[ext_resource type="Texture2D" uid="uid://dpxw8tsbgrfse" path="res://assets/sprites/Players/Player_2.png" id="1_rly1m"]
+
+[resource]
+script = ExtResource("1_qusey")
+name = "Brawler"
+type = 0
+icon = ExtResource("1_rly1m")
+health = 20
+health_increase_per_wave = 1.0
+damage = 4
+damage_increase_per_wave = 0.0
+speed = 270
+luck = 3.0
+block_chance = 5.0
+gold_drop = 0
+metadata/_custom_type_script = "uid://nc0c0h3ka844"

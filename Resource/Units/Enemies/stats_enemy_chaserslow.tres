@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=2 format=3 uid="uid://csnigmpvmqvya"]
+
+[ext_resource type="Script" uid="uid://nc0c0h3ka844" path="res://Resource/Units/unit_stats.gd" id="1_pg454"]
+
+[resource]
+script = ExtResource("1_pg454")
+name = ""
+type = 0
+health = 1
+health_increase_per_wave = 1.0
+damage = 1
+damage_increase_per_wave = 1.0
+speed = 300
+luck = 1.0
+block_chance = 0.0
+gold_drop = 1
+metadata/_custom_type_script = "uid://nc0c0h3ka844"

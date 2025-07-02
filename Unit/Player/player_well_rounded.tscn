@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bomg7due682j6"]
+
+[ext_resource type="PackedScene" uid="uid://cmulom061bddn" path="res://Unit/Player/unit.tscn" id="1_lamv6"]
+[ext_resource type="Script" uid="uid://c54b3c0dfmh2w" path="res://Unit/Player/Player.gd" id="2_05p0i"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="3_e65kj"]
+[ext_resource type="Resource" uid="uid://b7g587m0xvx5e" path="res://Resource/Units/Players/stats_player_well_rounded.tres" id="3_wwarw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwarw"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ow3wb"]
+radius = 29.0172
+
+[node name="PlayerWellRounded" instance=ExtResource("1_lamv6")]
+collision_mask = 2
+script = ExtResource("2_05p0i")
+stats = ExtResource("3_wwarw")
+
+[node name="Sprite" parent="Visual" index="1"]
+texture = ExtResource("3_e65kj")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -33)
+shape = SubResource("CircleShape2D_wwarw")
+
+[node name="HurtBoxComponent" parent="." index="3"]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(0, -33)
+shape = SubResource("CircleShape2D_ow3wb")
+
+[node name="HealthBar" parent="." index="4"]
+back_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+fill_color = Color(0.848083, 0.21403, 0.390152, 1)

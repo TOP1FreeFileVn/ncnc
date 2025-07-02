@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chsrxx5frkw7"]
+
+[ext_resource type="PackedScene" uid="uid://bomg7due682j6" path="res://Unit/Player/player_well_rounded.tscn" id="1_wx1b0"]
+
+[node name="PlayerBrawler" instance=ExtResource("1_wx1b0")]

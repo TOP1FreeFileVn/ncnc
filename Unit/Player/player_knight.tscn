@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://e1ui0mcbgu4k"]
+
+[ext_resource type="PackedScene" uid="uid://bomg7due682j6" path="res://Unit/Player/player_well_rounded.tscn" id="1_ttok0"]
+[ext_resource type="Resource" uid="uid://padabsbj8wb2" path="res://Resource/Units/Players/stats_player_well_kinght.tres" id="2_031fm"]
+
+[node name="PlayerKnight" instance=ExtResource("1_ttok0")]
+stats = ExtResource("2_031fm")

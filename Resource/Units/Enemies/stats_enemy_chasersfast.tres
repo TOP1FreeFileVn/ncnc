@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://babvtl30hayih"]
+
+[ext_resource type="Texture2D" uid="uid://c6vplmpl4q4jr" path="res://assets/sprites/Enemies/Enemy_3.png" id="1_0j3yf"]
+[ext_resource type="Script" uid="uid://nc0c0h3ka844" path="res://Resource/Units/unit_stats.gd" id="2_72aqj"]
+
+[resource]
+script = ExtResource("2_72aqj")
+name = "ChaserFast"
+type = 1
+icon = ExtResource("1_0j3yf")
+health = 7
+health_increase_per_wave = 2.5
+damage = 2
+damage_increase_per_wave = 1.5
+speed = 350
+luck = 0.0
+block_chance = 5.0
+gold_drop = 2
+metadata/_custom_type_script = "uid://nc0c0h3ka844"

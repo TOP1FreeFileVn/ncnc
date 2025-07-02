@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwyc7pleaogf"]
+
+[ext_resource type="Script" uid="uid://dvaq51b8ynled" path="res://Unit/UIComponent/health_bar.gd" id="1_cqjsp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01vyc"]
+bg_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqjsp"]
+bg_color = Color(0.848083, 0.21403, 0.390152, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="HealthBar" type="Control"]
+custom_minimum_size = Vector2(96, 20)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -624.0
+offset_bottom = -1260.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cqjsp")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_01vyc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cqjsp")
+max_value = 1.0
+value = 0.54
+show_percentage = false
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.3333
+grow_horizontal = 2
+text = "10
+"
+horizontal_alignment = 1

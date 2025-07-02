@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyajtjyk3akw"]
+
+[ext_resource type="Script" uid="uid://c45s5p4cuugct" path="res://Unit/Arena/arena.gd" id="1_6mj2s"]
+[ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://assets/sprites/BG.png" id="1_57757"]
+[ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://assets/sprites/Map.png" id="2_1bw0d"]
+[ext_resource type="PackedScene" uid="uid://bomg7due682j6" path="res://Unit/Player/player_well_rounded.tscn" id="3_6mj2s"]
+[ext_resource type="PackedScene" uid="uid://cw5vnevkhcxjl" path="res://Ui_control_player/touch_control.tscn" id="4_0vlib"]
+[ext_resource type="PackedScene" uid="uid://cu5c2e4rtscqg" path="res://Unit/Enemy/enemy_chaser_slow.tscn" id="5_0vlib"]
+[ext_resource type="Script" uid="uid://xn8sf121k6n6" path="res://Resource/Units/Players/camera_2d.gd" id="5_1bw0d"]
+
+[node name="Arena" type="Node2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_6mj2s")
+player = NodePath("PlayerWellRounded")
+normal_color = Color(1, 1, 1, 1)
+blocked_color = Color(0.389287, 0.389287, 0.389287, 1)
+critical_color = Color(0.996078, 0.780392, 0.380392, 1)
+hp_color = Color(0, 0.627451, 0.482353, 1)
+
+[node name="BlackBG" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_57757")
+
+[node name="GrassBG" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_1bw0d")
+
+[node name="Enemy_chaser_slow" parent="." instance=ExtResource("5_0vlib")]
+position = Vector2(-413, 10)
+
+[node name="Touch_control" parent="." instance=ExtResource("4_0vlib")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_1bw0d")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1013, 0)
+
+[node name="PlayerWellRounded" parent="." instance=ExtResource("3_6mj2s")]
+
+[editable path="Touch_control"]
