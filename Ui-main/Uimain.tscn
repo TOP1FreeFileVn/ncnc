@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://qai5nwepmuow"]
+
+[ext_resource type="Texture2D" uid="uid://csgtg22va67fn" path="res://tải xuống.png" id="1_1jqt7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a581w"]
+bg_color = Color(0.617802, 0.617785, 0.0768311, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq0af"]
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Uimain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="TextureRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 140.0
+offset_bottom = 141.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a581w")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 127.0
+texture_normal = ExtResource("1_1jqt7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel2" type="Panel" parent="TextureRect"]
+z_index = -1
+layout_mode = 0
+offset_left = 89.0
+offset_top = 29.0
+offset_right = 275.0
+offset_bottom = 124.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qq0af")
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+z_index = -2
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 22.0
+offset_top = 91.0
+offset_right = 2.0
+offset_bottom = 103.0
+grow_horizontal = 2
+color = Color(0.6897, 0.6897, 0.6897, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 106.0
+offset_bottom = 99.0
+color = Color(0.920841, 0.693488, 0, 1)
