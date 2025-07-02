@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2thcp6acbnev"]
+
+[ext_resource type="Script" uid="uid://dcmsx2urc24aj" path="res://Unit/Weapon/weapon.gd" id="1_3d62c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nko6g"]
+radius = 150.0
+
+[node name="WeaponBase" type="Node2D"]
+script = ExtResource("1_3d62c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="RangeArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeArea"]
+shape = SubResource("CircleShape2D_nko6g")
+
+[node name="WeaponBehavior" type="Node2D" parent="."]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="RangeArea" to="." method="_on_range_area_area_entered"]
+[connection signal="area_shape_exited" from="RangeArea" to="." method="_on_range_area_area_shape_exited"]

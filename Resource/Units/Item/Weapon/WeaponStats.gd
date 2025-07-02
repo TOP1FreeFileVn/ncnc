@@ -9,3 +9,8 @@ class_name WeaponStats
 @export var knockback := 0.0
 @export_range(0.0 , 1.0) var lifesteal := 0.0
 @export var recoil:= 25.0
+@export var recoil_duration := 0.1
+@export var attack_duration := 0.2
+@export var back_duration := 0.15
+@export var projectile_scene : PackedScene
+@export var projectile_speed :=  1600
