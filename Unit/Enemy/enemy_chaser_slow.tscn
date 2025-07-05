@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cu5c2e4rtscqg"]
+[gd_scene load_steps=10 format=3 uid="uid://cu5c2e4rtscqg"]
 
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://assets/sprites/Enemies/Enemy_1.png" id="1_0x6mo"]
 [ext_resource type="PackedScene" uid="uid://cmulom061bddn" path="res://Unit/Player/unit.tscn" id="1_3kdbk"]
@@ -11,6 +11,9 @@ radius = 12.6491
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3kdbk"]
 radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fm0yt"]
+radius = 40.7922
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ir3so"]
 radius = 41.1096
@@ -36,6 +39,15 @@ collision_mask = 2
 position = Vector2(0, -27)
 shape = SubResource("CircleShape2D_3kdbk")
 
+[node name="HurtBoxComponent" parent="." index="4"]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_fm0yt")
+debug_color = Color(0.624604, 0.491329, 0.559506, 0.42)
+
 [node name="HitboxComponent" parent="." index="5" instance=ExtResource("5_fm0yt")]
 collision_layer = 4
 collision_mask = 33
@@ -47,3 +59,9 @@ shape = SubResource("CircleShape2D_ir3so")
 [node name="HealthBar" parent="." index="6"]
 back_color = Color(0.0156863, 0.054902, 0.168627, 1)
 fill_color = Color(0.372549, 0.537255, 0.756863, 1)
+
+[node name="KnockbackTimer" type="Timer" parent="." index="9"]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

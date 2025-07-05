@@ -21,7 +21,7 @@ func _on_hurt_box_component_on_damaged(hitbox: HitboxComponent) -> void:
 	setflashmat()
 	health.take_damage(hitbox.damage)
 	Global.on_create_damage_text.emit(self,hitbox)
-	print("%s: %d" % [name, health.current_health])
+
 
 
 func _on_flash_timer_timeout() -> void:

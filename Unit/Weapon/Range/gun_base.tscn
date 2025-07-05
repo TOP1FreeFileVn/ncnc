@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://wmo2js678xo4"]
+
+[ext_resource type="PackedScene" uid="uid://b2thcp6acbnev" path="res://Unit/Weapon/weapon_base.tscn" id="1_mm5nv"]
+[ext_resource type="Texture2D" uid="uid://bbsd0o1wllf0p" path="res://assets/sprites/Weapons/Range/WeaponPistol.png" id="2_d40yp"]
+
+[sub_resource type="GDScript" id="GDScript_mm5nv"]
+script/source = "extends WeaponBehavior
+class_name RangeBehavior
+
+@onready var muzzle = $\"../Sprite2D/Muzzle\"
+
+func excute_attack() -> void:
+	pass
+	weapon.is_attacking = true
+	
+	create_projectile()
+	print(\"vao\")
+	
+	var tween = create_tween()
+	var attack_pos = Vector2(weapon.atk_start_pos.x - weapon.data.stats.recoil,weapon.atk_start_pos.y)
+	tween.tween_property(weapon.Sprite2d, \"position\",attack_pos,weapon.data.stats.recoil_duration)
+	tween.tween_property(weapon.Sprite2d,\"position\",weapon.atk_start_pos,weapon.data.stats.recoil_duration)
+	weapon.is_attacking = false
+	await tween.finished
+	critical = false
+func create_projectile():
+	var instance := weapon.data.stats.projectile_scene.instantiate() as Projectile
+	get_tree().root.add_child(instance)
+	instance.global_position = muzzle.global_position
+	var velocity := Vector2.RIGHT.rotated(weapon.rotation) * weapon.data.stats.projectile_speed
+	instance.set_projectile(velocity,get_damage(),critical,weapon.data.stats.knockback,weapon.get_parent())
+"
+
+[node name="GunBase" instance=ExtResource("1_mm5nv")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_d40yp")
+
+[node name="Muzzle" type="Marker2D" parent="Sprite2D" index="0"]
+
+[node name="WeaponBehavior" parent="." index="2" node_paths=PackedStringArray("weapon")]
+position = Vector2(34, -14)
+script = SubResource("GDScript_mm5nv")
+weapon = NodePath("..")

@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_7x0vc")
-damage = 2.0
-accuracy = 0.9
+damage = 30.0
+accuracy = 1.0
 cooldown = 1
-crit_chance = 0.05
+crit_chance = 0.1
 crit_damage = 1.5
-max_range = 150.0
+max_range = 200.0
 knockback = 0.0
 lifesteal = 0.0
 recoil = 25.0

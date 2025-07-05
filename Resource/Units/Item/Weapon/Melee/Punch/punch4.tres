@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="ItemWeapon" load_steps=4 format=3 uid="uid://4augmx3s7mu6"]
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://4augmx3s7mu6"]
 
 [ext_resource type="Texture2D" uid="uid://l5hst1cf27oo" path="res://assets/sprites/Weapons/Melee/Weapon_Punch.png" id="1_flfmn"]
 [ext_resource type="Script" uid="uid://gr7jnc4fo0cs" path="res://Resource/Units/Item/Weapon/ItemWeapon.gd" id="2_dysu7"]
+[ext_resource type="PackedScene" uid="uid://ca4p08cwk552e" path="res://Unit/Weapon/Melee/weapon_punch.tscn" id="2_r4woc"]
 [ext_resource type="Resource" uid="uid://b4pn2y3n812l" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch4_stats.tres" id="3_flfmn"]
 
 [resource]
 script = ExtResource("2_dysu7")
 type = 0
+scene = ExtResource("2_r4woc")
 stats = ExtResource("3_flfmn")
 item_name = "Punch 4"
 item_icon = ExtResource("1_flfmn")

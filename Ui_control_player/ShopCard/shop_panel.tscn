@@ -1,0 +1,79 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1k4ptskvn33w"]
+
+[ext_resource type="Script" uid="uid://csc8d8nxxjxga" path="res://Ui_control_player/ShopCard/shop_panel.gd" id="1_l8kl0"]
+[ext_resource type="PackedScene" uid="uid://bdj7sgtb41a21" path="res://Ui_control_player/ShopCard/shopcard.tscn" id="2_h4c04"]
+[ext_resource type="Script" uid="uid://crdtmll0djovm" path="res://Resource/Units/Item/ItemBase.gd" id="2_ysnv4"]
+[ext_resource type="Resource" uid="uid://d0h5amti8mqye" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw2.tres" id="3_imt2l"]
+[ext_resource type="Resource" uid="uid://bkvfaprsh4dhi" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw3.tres" id="4_nmn42"]
+[ext_resource type="Resource" uid="uid://ddplyrcwwa75p" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw.tres" id="5_t76xc"]
+[ext_resource type="Resource" uid="uid://8opp6v23ms7k" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch1.tres" id="6_ey1uy"]
+[ext_resource type="Resource" uid="uid://ddwky8v1w0pxy" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch2.tres" id="7_hsoem"]
+[ext_resource type="Resource" uid="uid://dfgocyhq6x66t" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol3.tres" id="8_gd8wh"]
+[ext_resource type="Resource" uid="uid://dc4hdhnx1eqg6" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol2.tres" id="9_wwnpu"]
+[ext_resource type="PackedScene" uid="uid://cu4hf2e2j3dfq" path="res://Ui_control_player/ShopCard/iventory.tscn" id="10_imt2l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llgnk"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f15t"]
+bg_color = Color(0.320942, 0.590054, 0.118872, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="ShopPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_llgnk")
+script = ExtResource("1_l8kl0")
+shop_item = Array[ExtResource("2_ysnv4")]([ExtResource("3_imt2l"), ExtResource("4_nmn42"), ExtResource("5_t76xc"), ExtResource("6_ey1uy"), ExtResource("7_hsoem"), ExtResource("8_gd8wh"), ExtResource("9_wwnpu")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="Control2" type="Control" parent="MarginContainer/Control"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1f15t")
+text = "Next wave"
+
+[node name="ItemContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Shopcard" parent="MarginContainer/Control/ItemContainer" instance=ExtResource("2_h4c04")]
+layout_mode = 2
+
+[node name="Shopcard2" parent="MarginContainer/Control/ItemContainer" instance=ExtResource("2_h4c04")]
+layout_mode = 2
+
+[node name="Shopcard3" parent="MarginContainer/Control/ItemContainer" instance=ExtResource("2_h4c04")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Iventory" parent="MarginContainer/Control" instance=ExtResource("10_imt2l")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 2

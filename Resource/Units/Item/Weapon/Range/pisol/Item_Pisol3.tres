@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=6 format=3 uid="uid://dfgocyhq6x66t"]
+
+[ext_resource type="Texture2D" uid="uid://bbsd0o1wllf0p" path="res://assets/sprites/Weapons/Range/WeaponPistol.png" id="1_8nnhg"]
+[ext_resource type="Resource" uid="uid://cpda4p3aucv7h" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol4.tres" id="1_uts57"]
+[ext_resource type="PackedScene" uid="uid://wmo2js678xo4" path="res://Unit/Weapon/Range/gun_base.tscn" id="2_uts57"]
+[ext_resource type="Script" uid="uid://gr7jnc4fo0cs" path="res://Resource/Units/Item/Weapon/ItemWeapon.gd" id="3_xr7fn"]
+[ext_resource type="Resource" uid="uid://c8p2iy6d0swmm" path="res://Resource/Units/Item/Weapon/Range/pisol/PisolStats3.tres" id="5_xr7fn"]
+
+[resource]
+script = ExtResource("3_xr7fn")
+type = 1
+scene = ExtResource("2_uts57")
+stats = ExtResource("5_xr7fn")
+UpgradeTo = ExtResource("1_uts57")
+item_name = "Pisol3"
+item_icon = ExtResource("1_8nnhg")
+item_tier = 2
+item_type = 0
+item_cost = 10
+metadata/_custom_type_script = "uid://gr7jnc4fo0cs"

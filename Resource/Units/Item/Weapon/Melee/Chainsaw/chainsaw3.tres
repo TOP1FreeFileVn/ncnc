@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemWeapon" load_steps=5 format=3 uid="uid://bkvfaprsh4dhi"]
+
+[ext_resource type="Texture2D" uid="uid://nrabpofasepu" path="res://assets/sprites/Weapons/Melee/Weapon_chainsaw.png" id="1_wca8k"]
+[ext_resource type="Script" uid="uid://gr7jnc4fo0cs" path="res://Resource/Units/Item/Weapon/ItemWeapon.gd" id="2_efjur"]
+[ext_resource type="PackedScene" uid="uid://c67k31wjdafam" path="res://Unit/Weapon/Melee/weapon_chainsaw.tscn" id="2_hmrnw"]
+[ext_resource type="Resource" uid="uid://cfppy40e1afps" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsawstats3.tres" id="4_bao4m"]
+
+[resource]
+script = ExtResource("2_efjur")
+type = 0
+scene = ExtResource("2_hmrnw")
+stats = ExtResource("4_bao4m")
+item_name = "Chainsaw"
+item_icon = ExtResource("1_wca8k")
+item_tier = 1
+item_type = 0
+item_cost = 0
+metadata/_custom_type_script = "uid://gr7jnc4fo0cs"

@@ -16,3 +16,5 @@ enum UnitType {
 @export var luck := 1.0
 @export var block_chance := 0.0
 @export var gold_drop := 1
+@export var hp_regen := 0
+@export var life_steal := 0.0

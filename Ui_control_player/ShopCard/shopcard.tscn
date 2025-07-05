@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdj7sgtb41a21"]
+
+[ext_resource type="Script" uid="uid://bfep8olx3imyi" path="res://Ui_control_player/ShopCard/shopcard.gd" id="1_eq8pg"]
+[ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="2_j5rui"]
+[ext_resource type="Texture2D" uid="uid://chm4srsn6xd8y" path="res://assets/sprites/Gold/gold_1.png" id="3_5ex2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_op1r1"]
+bg_color = Color(0.223103, 0.223103, 0.223103, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mfft"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iint2"]
+bg_color = Color(0.0941176, 0.623529, 0.745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvcv0"]
+bg_color = Color(0.388235, 0.388235, 0.388235, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_nknxp"]
+font_size = 20
+
+[node name="Shopcard" type="Panel"]
+custom_minimum_size = Vector2(140, 200)
+offset_right = 100.0
+offset_bottom = 150.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_op1r1")
+script = ExtResource("1_eq8pg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ItemBG" type="Panel" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0mfft")
+
+[node name="Itemicon" type="TextureRect" parent="MarginContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j5rui")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 93.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxFlat_iint2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvcv0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -20.0
+offset_right = 41.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/Button/HBoxContainer"]
+custom_minimum_size = Vector2(20, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_5ex2v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Button/HBoxContainer"]
+layout_mode = 2
+text = "30"
+label_settings = SubResource("LabelSettings_nknxp")
+
+[connection signal="pressed" from="MarginContainer/Control/Button" to="." method="_on_button_pressed"]

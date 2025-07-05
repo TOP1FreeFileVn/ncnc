@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://chv7xquvivb3x"]
+
+[ext_resource type="Script" uid="uid://dvwwccp4jrajc" path="res://Ui_control_player/UpgradeCard/upgrade_panell.gd" id="1_jkcp7"]
+[ext_resource type="Script" uid="uid://jt338o375mr0" path="res://Resource/Units/Item/Upgrade/itemupgrade.gd" id="2_gkenk"]
+[ext_resource type="Resource" uid="uid://csbqabwe4w7oy" path="res://Resource/Units/Item/Upgrade/data/updrade_block.tres" id="3_7hnlg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkcp7"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gkenk"]
+font_size = 50
+
+[node name="UpgradePanell" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkcp7")
+script = ExtResource("1_jkcp7")
+upgrade_list = Array[ExtResource("2_gkenk")]([ExtResource("3_7hnlg")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Wave complete
+"
+label_settings = SubResource("LabelSettings_gkenk")
+horizontal_alignment = 1
+
+[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
