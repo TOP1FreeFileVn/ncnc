@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu4hf2e2j3dfq"]
+[gd_scene load_steps=7 format=3 uid="uid://cu4hf2e2j3dfq"]
 
 [ext_resource type="Script" uid="uid://br2wpycuqxqe4" path="res://Ui_control_player/ShopCard/iventory.gd" id="1_muyk5"]
+[ext_resource type="Script" uid="uid://gr7jnc4fo0cs" path="res://Resource/Units/Item/Weapon/ItemWeapon.gd" id="2_xu8qb"]
+[ext_resource type="Resource" uid="uid://8opp6v23ms7k" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch1.tres" id="3_ir5y2"]
+[ext_resource type="Resource" uid="uid://ddplyrcwwa75p" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw.tres" id="4_0mmxe"]
+[ext_resource type="Resource" uid="uid://b7foa10yke26u" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol.tres" id="5_0kt5s"]
+[ext_resource type="Resource" uid="uid://d0h5amti8mqye" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw2.tres" id="6_gbu3w"]
 
-[node name="Iventory" type="Control"]
-custom_minimum_size = Vector2(420, 520)
+[node name="Iventory" type="Control" groups=["inv"]]
+custom_minimum_size = Vector2(420, 500)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_muyk5")
+weapon = Array[ExtResource("2_xu8qb")]([ExtResource("3_ir5y2"), ExtResource("4_0mmxe"), ExtResource("5_0kt5s"), ExtResource("6_gbu3w")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(420, 520)
@@ -34,18 +40,21 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Header" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [node name="ButtonSpawn" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Header"]
+visible = false
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 text = "SpawnItem"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/ScrollContainer"]

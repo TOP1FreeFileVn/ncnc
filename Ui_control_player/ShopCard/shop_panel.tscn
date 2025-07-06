@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1k4ptskvn33w"]
+[gd_scene load_steps=15 format=3 uid="uid://b1k4ptskvn33w"]
 
 [ext_resource type="Script" uid="uid://csc8d8nxxjxga" path="res://Ui_control_player/ShopCard/shop_panel.gd" id="1_l8kl0"]
 [ext_resource type="PackedScene" uid="uid://bdj7sgtb41a21" path="res://Ui_control_player/ShopCard/shopcard.tscn" id="2_h4c04"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dfgocyhq6x66t" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol3.tres" id="8_gd8wh"]
 [ext_resource type="Resource" uid="uid://dc4hdhnx1eqg6" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol2.tres" id="9_wwnpu"]
 [ext_resource type="PackedScene" uid="uid://cu4hf2e2j3dfq" path="res://Ui_control_player/ShopCard/iventory.tscn" id="10_imt2l"]
+[ext_resource type="PackedScene" uid="uid://d1eiashu2ks0w" path="res://Ui_control_player/stats_cotainer.tscn" id="12_nmn42"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llgnk"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 1)
@@ -39,17 +40,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="Control" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 30
+theme_override_constants/separation = 22
 
 [node name="Control2" type="Control" parent="MarginContainer/Control"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/Control"]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1f15t")
 text = "Next wave"
@@ -68,8 +72,7 @@ layout_mode = 2
 [node name="Shopcard3" parent="MarginContainer/Control/ItemContainer" instance=ExtResource("2_h4c04")]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/Control"]
-custom_minimum_size = Vector2(0, 20)
+[node name="Shopcard4" parent="MarginContainer/Control/ItemContainer" instance=ExtResource("2_h4c04")]
 layout_mode = 2
 
 [node name="Iventory" parent="MarginContainer/Control" instance=ExtResource("10_imt2l")]
@@ -77,3 +80,51 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 2
+
+[node name="StatsCotainer" parent="MarginContainer/Control/HBoxContainer" instance=ExtResource("12_nmn42")]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="MarginContainer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -9.66667
+offset_right = 20.0
+offset_bottom = 9.66667
+grow_horizontal = 2
+grow_vertical = 2
+text = "Drop to store"
+
+[node name="Panel3" type="Panel" parent="MarginContainer/Control/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -9.66667
+offset_right = 20.0
+offset_bottom = 9.66667
+grow_horizontal = 2
+grow_vertical = 2
+text = "drop to buy"
+
+[connection signal="pressed" from="MarginContainer/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="on_item_purchased" from="MarginContainer/Control/ItemContainer/Shopcard" to="MarginContainer/Control/Iventory" method="_on_shopcard_on_item_purchased"]
+[connection signal="on_item_purchased" from="MarginContainer/Control/ItemContainer/Shopcard2" to="MarginContainer/Control/Iventory" method="_on_shopcard_on_item_purchased"]
+[connection signal="on_item_purchased" from="MarginContainer/Control/ItemContainer/Shopcard3" to="MarginContainer/Control/Iventory" method="_on_shopcard_on_item_purchased"]
+[connection signal="on_item_purchased" from="MarginContainer/Control/ItemContainer/Shopcard4" to="MarginContainer/Control/Iventory" method="_on_shopcard_on_item_purchased"]

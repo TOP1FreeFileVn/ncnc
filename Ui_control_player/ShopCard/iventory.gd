@@ -5,13 +5,15 @@ var item_held = null
 var current_slot = null
 var can_place = false
 var icon_anchor : Vector2
+@export var weapon : Array[ItemWeapon]
 @onready var grid_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var item_scene = preload("res://Ui_control_player/Backpack/item.tscn")
 @onready var scroll_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer
 @onready var col_count = grid_container.columns
 func _ready():
-	for i in range(14):
+	for i in range(40):
 		create_slot()
+	
 	
 	
 
@@ -53,11 +55,7 @@ func _on_slot_mouse_exited(a_Slot):
 		current_slot = null
 
 func _on_button_spawn_pressed():
-	var new_item = item_scene.instantiate()
-	add_child(new_item)
-	new_item.load_item(randi_range(1,4))    
-	new_item.selected = true
-	item_held = new_item
+	spawnItem()
 	
 	
 func check_slot_availability(a_Slot):
@@ -76,6 +74,16 @@ func check_slot_availability(a_Slot):
 		
 	can_place = true
 	
+func spawnItem():
+	var new_item = item_scene.instantiate()
+	add_child(new_item)
+	var randomNum = randi_range(1,4)
+	new_item.load_item(randomNum)
+	new_item.selected = true
+	item_held = new_item
+	var new_weapon = weapon[randomNum-1]
+	print(Global.player)
+	Global.player.add_weapon(new_weapon)
 func set_grids(a_Slot):
 	for grid in item_held.item_grids:
 		var grid_to_check = a_Slot.slot_ID + grid[0] + grid[1] * col_count
@@ -119,7 +127,7 @@ func place_item():
 		var grid_to_check = current_slot.slot_ID + grid[0] + grid[1] * col_count
 		grid_array[grid_to_check].state = grid_array[grid_to_check].States.TAKEN 
 		grid_array[grid_to_check].item_stored = item_held
-
+	print(item_held)
 	
 	item_held = null
 	clear_grid()
@@ -135,15 +143,17 @@ func pick_item():
 	item_held.global_position = get_global_mouse_position()
 	
 	for grid in item_held.item_grids:
-		var grid_to_check = item_held.grid_anchor.slot_ID + grid[0] + grid[1] * col_count # use grid anchor instead of current slot to prevent bug
+		var grid_to_check = item_held.grid_anchor.slot_ID + grid[0] + grid[1] * col_count 
 		grid_array[grid_to_check].state = grid_array[grid_to_check].States.FREE 
 		grid_array[grid_to_check].item_stored = null
 	
 	check_slot_availability(current_slot)
 	set_grids.call_deferred(current_slot)
 	
-	
-
 
 func _on_add_slot_pressed():
 	create_slot()
+
+
+func _on_shopcard_on_item_purchased() -> void:
+	spawnItem()

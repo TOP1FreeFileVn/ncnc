@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bomg7due682j6" path="res://Unit/Player/player_well_rounded.tscn" id="3_6mj2s"]
 [ext_resource type="PackedScene" uid="uid://cw5vnevkhcxjl" path="res://Ui_control_player/touch_control.tscn" id="4_0vlib"]
 [ext_resource type="Script" uid="uid://xn8sf121k6n6" path="res://Resource/Units/Players/camera_2d.gd" id="5_1bw0d"]
-[ext_resource type="PackedScene" uid="uid://chv7xquvivb3x" path="res://Ui_control_player/UpgradeCard/upgrade_panell.tscn" id="6_8p3wp"]
+[ext_resource type="PackedScene" uid="uid://b1k4ptskvn33w" path="res://Ui_control_player/ShopCard/shop_panel.tscn" id="5_jsc7y"]
 [ext_resource type="Script" uid="uid://crguj36d8qlf0" path="res://Unit/Arena/spawner.gd" id="9_dektv"]
 [ext_resource type="Script" uid="uid://bmm0fp0j67grq" path="res://Resource/Wave/wave_data.gd" id="10_tjcpx"]
 [ext_resource type="Resource" uid="uid://cxxq11d1sowvq" path="res://Resource/Wave/data/way_1to5.tres" id="11_lrex5"]
@@ -35,9 +35,6 @@ texture = ExtResource("2_1bw0d")
 
 [node name="GameUI" parent="." instance=ExtResource("4_0vlib")]
 
-[node name="UpgradePanell" parent="GameUI" instance=ExtResource("6_8p3wp")]
-visible = false
-
 [node name="WaveTimeLabel" type="Label" parent="GameUI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -61,6 +58,9 @@ offset_bottom = 97.4167
 grow_horizontal = 2
 text = "WAVE 1"
 label_settings = SubResource("LabelSettings_lrex5")
+
+[node name="ShopPanel" parent="GameUI" instance=ExtResource("5_jsc7y")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("5_1bw0d")

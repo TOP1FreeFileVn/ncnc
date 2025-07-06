@@ -6,7 +6,7 @@ class_name Arena
 @export var blocked_color: Color
 @export var critical_color: Color
 @export var hp_color: Color
-@onready var uprade_panel: UpgradePanel = $GameUI/UpgradePanell
+@onready var uprade_panel = $GameUI/ShopPanel
 @onready var wavetime = $GameUI/WaveTimeLabel 
 @onready var waveindex = $GameUI/WaveIndexLabel
 @onready var spawner = $Spawner

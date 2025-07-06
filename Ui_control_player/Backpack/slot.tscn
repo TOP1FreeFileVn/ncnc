@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://hyuf0qrfvo3n" path="res://Ui_control_player/Backpack/slot.gd" id="2_spihd"]
 
 [node name="Slot" type="TextureRect"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(80, 80)
 texture = ExtResource("1_lncic")
 expand_mode = 1
 script = ExtResource("2_spihd")

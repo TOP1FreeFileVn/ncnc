@@ -6,3 +6,7 @@ const SHOP_CARD_SCENE = preload("res://Ui_control_player/ShopCard/shopcard.tscn"
 func loadshop(current_wave : int):
 	for child in $MarginContainer/Control/ItemContainer.get_children() : child.queue_free()
 	
+
+
+func _on_button_pressed() -> void:
+	Global.on_upgrade_selected.emit()

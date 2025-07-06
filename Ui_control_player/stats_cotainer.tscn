@@ -37,7 +37,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_xr6s0"]
-font_size = 24
+font_size = 20
 
 [node name="StatsCotainer" type="Panel"]
 custom_minimum_size = Vector2(200, 420)
@@ -48,6 +48,7 @@ offset_right = -332.0
 offset_bottom = -980.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
 theme_override_styles/panel = SubResource("StyleBoxFlat_82mrd")
 script = SubResource("GDScript_hwwjr")
 
@@ -68,7 +69,7 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="StatsHealth" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
@@ -103,7 +104,7 @@ label_settings = SubResource("LabelSettings_xr6s0")
 horizontal_alignment = 2
 
 [node name="HpRegen" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
@@ -138,7 +139,7 @@ label_settings = SubResource("LabelSettings_xr6s0")
 horizontal_alignment = 2
 
 [node name="LifeSteal" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
@@ -173,7 +174,7 @@ label_settings = SubResource("LabelSettings_xr6s0")
 horizontal_alignment = 2
 
 [node name="Luck" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
@@ -208,7 +209,7 @@ label_settings = SubResource("LabelSettings_xr6s0")
 horizontal_alignment = 2
 
 [node name="Speed" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
@@ -243,7 +244,7 @@ label_settings = SubResource("LabelSettings_xr6s0")
 horizontal_alignment = 2
 
 [node name="Block chance" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
@@ -278,7 +279,7 @@ label_settings = SubResource("LabelSettings_xr6s0")
 horizontal_alignment = 2
 
 [node name="Damage" type="Panel" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_otcwx")
 
