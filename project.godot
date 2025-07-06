@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Capboss"
-run/main_scene="res://Ui-main/Uimain.tscn"
+run/main_scene="res://Adventure/Adventure.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,10 @@ window/size/viewport_height=1280
 window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom_font="uid://dmkoe1uhl42dl"
 
 [rendering]
 

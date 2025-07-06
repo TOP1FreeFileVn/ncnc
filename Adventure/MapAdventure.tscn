@@ -1,0 +1,464 @@
+[gd_scene load_steps=27 format=3 uid="uid://bs8imbs4chfs8"]
+
+[ext_resource type="Texture2D" uid="uid://c1osbvdsinaqn" path="res://tải xuống (3).png" id="1_2jraq"]
+[ext_resource type="Script" uid="uid://b5tl5qrvilxt2" path="res://Adventure/map_adventure.gd" id="1_w473h"]
+[ext_resource type="Texture2D" uid="uid://drtbkt6hy8prw" path="res://BCO.55bb07a9-41f1-4789-ba71-201f5b382743.png" id="2_w473h"]
+[ext_resource type="Texture2D" uid="uid://cdkkm35ijln2" path="res://BCO.cac4a8ed-decb-40f0-bdd1-e0661a2c97fa.png" id="3_he3p1"]
+[ext_resource type="Texture2D" uid="uid://bxbjo2v2ixfj6" path="res://tải xuống (2).png" id="4_yyrya"]
+[ext_resource type="FontFile" uid="uid://dmkoe1uhl42dl" path="res://Coiny-Regular.ttf" id="5_88wv0"]
+[ext_resource type="Script" uid="uid://bcjx70hk5gets" path="res://Adventure/arrow_top.gd" id="7_rkk6p"]
+[ext_resource type="Texture2D" uid="uid://b5431qkvc63va" path="res://tải xuống (16).png" id="7_sl61q"]
+[ext_resource type="Script" uid="uid://cxwr6evf7sqa3" path="res://Adventure/arrow_bottom.gd" id="8_6g3rh"]
+[ext_resource type="Texture2D" uid="uid://c1int006g6ems" path="res://tải xuống (15).png" id="9_rkk6p"]
+[ext_resource type="Texture2D" uid="uid://bw1xg8qsxp1e" path="res://tải xuống (18).png" id="10_6g3rh"]
+[ext_resource type="Texture2D" uid="uid://bqd8fslwwvmy6" path="res://tải xuống (17).png" id="11_wka73"]
+[ext_resource type="Texture2D" uid="uid://b3bmm4mbs0x8j" path="res://Photo/arrow_decorative_n.png" id="12_sl61q"]
+[ext_resource type="Texture2D" uid="uid://ccjfqr64e5k50" path="res://tải xuống (14).png" id="12_sv3k8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6g3rh"]
+bg_color = Color(0.617802, 0.617785, 0.0768311, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wka73"]
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sv3k8"]
+bg_color = Color(0.274603, 0.274603, 0.274603, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_ixjk5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8libe"]
+bg_color = Color(0.205162, 0.231103, 0.263523, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6g3rh"]
+load_path = "res://.godot/imported/arrow_decorative_n.png-169d862ffdeacc7b179350af97660658.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pen0x"]
+bg_color = Color(0.179288, 0.179288, 0.179288, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2ha7"]
+bg_color = Color(0.265846, 0.265846, 0.265846, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sl61q"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgnxg"]
+bg_color = Color(0.76662, 0.76662, 0.76662, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkk6p"]
+bg_color = Color(0.814005, 0.749762, 0.52226, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jlg33"]
+bg_color = Color(0.678732, 0.61312, 0.379847, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="MapAdventure" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w473h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Identity" type="Control" parent="TextureRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 292.0
+offset_bottom = 135.0
+
+[node name="Panel" type="Panel" parent="TextureRect/Identity"]
+z_index = 2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 140.0
+offset_bottom = 141.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6g3rh")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/Identity/Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 127.0
+texture_normal = ExtResource("1_2jraq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Panel2" type="Panel" parent="TextureRect/Identity"]
+z_index = 1
+layout_mode = 0
+offset_left = 89.0
+offset_top = 29.0
+offset_right = 282.0
+offset_bottom = 124.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wka73")
+
+[node name="Label" type="Label" parent="TextureRect/Identity"]
+z_index = 2
+offset_left = 142.0
+offset_top = 43.0
+offset_right = 274.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_sv3k8")
+text = "Tomsky12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resources" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 301.0
+offset_top = 14.0
+offset_right = 698.0
+offset_bottom = 94.0
+
+[node name="Diamon" type="Button" parent="TextureRect/Resources"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 29.0
+offset_right = 249.0
+offset_bottom = 58.0
+theme = SubResource("Theme_ixjk5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8libe")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Resources/Diamon"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = 49.0
+texture = ExtResource("2_w473h")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect/Resources/Diamon"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 69.0
+offset_bottom = 116.0
+theme_override_font_sizes/font_size = 27
+text = "9999
+
+"
+
+[node name="Energy" type="Button" parent="TextureRect/Resources"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 29.0
+offset_right = 119.0
+offset_bottom = 58.0
+theme = SubResource("Theme_ixjk5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8libe")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Resources/Energy"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -19.0
+offset_right = 11.0
+offset_bottom = 49.0
+texture = ExtResource("3_he3p1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect/Resources/Energy"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 27
+text = "9999
+
+"
+
+[node name="Coin" type="Button" parent="TextureRect/Resources"]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 29.0
+offset_right = 379.0
+offset_bottom = 59.0
+theme = SubResource("Theme_ixjk5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8libe")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Resources/Coin"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -15.0
+offset_right = 11.0
+offset_bottom = 53.0
+texture = ExtResource("4_yyrya")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect/Resources/Coin"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 71.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 27
+text = "9999
+
+"
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 94.0
+offset_bottom = 103.0
+grow_horizontal = 2
+color = Color(0.52549, 0.52549, 0.52549, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="TextureRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -21.0
+offset_top = 958.0
+offset_right = -19.0
+offset_bottom = 970.0
+grow_horizontal = 2
+color = Color(0.6897, 0.6897, 0.689699, 1)
+
+[node name="Arrow" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 110.0
+offset_top = 185.0
+offset_right = 592.0
+offset_bottom = 1034.0
+
+[node name="ArrowTop" type="TextureButton" parent="TextureRect/Arrow"]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 18.0
+offset_right = 297.0
+offset_bottom = 110.0
+texture_normal = ExtResource("12_sl61q")
+texture_pressed = ExtResource("12_sl61q")
+texture_hover = SubResource("CompressedTexture2D_6g3rh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_rkk6p")
+
+[node name="ArrowBottom" type="TextureButton" parent="TextureRect/Arrow"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 741.0
+offset_right = 310.0
+offset_bottom = 833.0
+texture_normal = ExtResource("12_sl61q")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+script = ExtResource("8_6g3rh")
+
+[node name="Map" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 62.0
+offset_top = 312.0
+offset_right = 645.0
+offset_bottom = 904.0
+
+[node name="Map1" type="Button" parent="TextureRect/Map"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 575.0
+offset_bottom = 580.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_pen0x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_b2ha7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pen0x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pen0x")
+
+[node name="Map2" type="Button" parent="TextureRect/Map"]
+visible = false
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 575.0
+offset_bottom = 580.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_sl61q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tgnxg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sl61q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sl61q")
+
+[node name="Map3" type="Button" parent="TextureRect/Map"]
+visible = false
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 575.0
+offset_bottom = 580.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_rkk6p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jlg33")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rkk6p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkk6p")
+
+[node name="Menu" type="Control" parent="TextureRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 1068.0
+offset_right = 724.0
+offset_bottom = 1273.0
+
+[node name="Shop" type="TextureButton" parent="TextureRect/Menu"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 17.0
+offset_right = 152.0
+offset_bottom = 189.0
+texture_normal = ExtResource("7_sl61q")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Menu/Shop"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 154.0
+offset_right = 204.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("5_88wv0")
+theme_override_font_sizes/font_size = 25
+text = "Cửa Hàng
+"
+
+[node name="Equipment" type="TextureButton" parent="TextureRect/Menu"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 17.0
+offset_right = 294.0
+offset_bottom = 189.0
+texture_normal = ExtResource("9_rkk6p")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Menu/Equipment"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 154.0
+offset_right = 211.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("5_88wv0")
+theme_override_font_sizes/font_size = 25
+text = "Trang Bị "
+
+[node name="Adventure" type="TextureButton" parent="TextureRect/Menu"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 1.0
+offset_right = 442.0
+offset_bottom = 198.0
+texture_normal = ExtResource("10_6g3rh")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Menu/Adventure"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 182.0
+offset_right = 212.0
+offset_bottom = 221.0
+theme_override_fonts/font = ExtResource("5_88wv0")
+theme_override_font_sizes/font_size = 28
+text = "Thám Hiểm "
+
+[node name="Event" type="TextureButton" parent="TextureRect/Menu"]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 17.0
+offset_right = 586.0
+offset_bottom = 191.0
+texture_normal = ExtResource("11_wka73")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Menu/Event"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 152.0
+offset_right = 215.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("5_88wv0")
+theme_override_font_sizes/font_size = 25
+text = "Sự Kiện
+"
+
+[node name="Achievement" type="TextureButton" parent="TextureRect/Menu"]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 12.0
+offset_right = 734.0
+offset_bottom = 194.0
+texture_normal = ExtResource("12_sv3k8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/Menu/Achievement"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 157.0
+offset_right = 189.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("5_88wv0")
+theme_override_font_sizes/font_size = 25
+text = "Thành Tựu
+"
+
+[connection signal="pressed" from="TextureRect/Menu/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="TextureRect/Menu/Equipment" to="." method="_on_equipment_pressed"]
+[connection signal="pressed" from="TextureRect/Menu/Event" to="." method="_on_event_pressed"]
+[connection signal="pressed" from="TextureRect/Menu/Achievement" to="." method="_on_achievement_pressed"]
