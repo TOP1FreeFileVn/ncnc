@@ -5,7 +5,7 @@ var move_dir: Vector2
 var current_weapon: Array[Weapon] = []
 func _ready() -> void:
 	super._ready()
-	add_weapon(preload("res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol.tres"))
+	add_weapon(preload("res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw.tres"))
 func is_facing_right()-> bool:
 	return visuals.scale.x == -0.5
 func _process(delta: float) -> void:

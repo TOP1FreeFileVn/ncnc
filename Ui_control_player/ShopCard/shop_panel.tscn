@@ -1,15 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1k4ptskvn33w"]
+[gd_scene load_steps=7 format=3 uid="uid://b1k4ptskvn33w"]
 
 [ext_resource type="Script" uid="uid://csc8d8nxxjxga" path="res://Ui_control_player/ShopCard/shop_panel.gd" id="1_l8kl0"]
 [ext_resource type="PackedScene" uid="uid://bdj7sgtb41a21" path="res://Ui_control_player/ShopCard/shopcard.tscn" id="2_h4c04"]
-[ext_resource type="Script" uid="uid://crdtmll0djovm" path="res://Resource/Units/Item/ItemBase.gd" id="2_ysnv4"]
-[ext_resource type="Resource" uid="uid://d0h5amti8mqye" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw2.tres" id="3_imt2l"]
-[ext_resource type="Resource" uid="uid://bkvfaprsh4dhi" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw3.tres" id="4_nmn42"]
-[ext_resource type="Resource" uid="uid://ddplyrcwwa75p" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw.tres" id="5_t76xc"]
-[ext_resource type="Resource" uid="uid://8opp6v23ms7k" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch1.tres" id="6_ey1uy"]
-[ext_resource type="Resource" uid="uid://ddwky8v1w0pxy" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch2.tres" id="7_hsoem"]
-[ext_resource type="Resource" uid="uid://dfgocyhq6x66t" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol3.tres" id="8_gd8wh"]
-[ext_resource type="Resource" uid="uid://dc4hdhnx1eqg6" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol2.tres" id="9_wwnpu"]
 [ext_resource type="PackedScene" uid="uid://cu4hf2e2j3dfq" path="res://Ui_control_player/ShopCard/iventory.tscn" id="10_imt2l"]
 [ext_resource type="PackedScene" uid="uid://d1eiashu2ks0w" path="res://Ui_control_player/stats_cotainer.tscn" id="12_nmn42"]
 
@@ -31,7 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_llgnk")
 script = ExtResource("1_l8kl0")
-shop_item = Array[ExtResource("2_ysnv4")]([ExtResource("3_imt2l"), ExtResource("4_nmn42"), ExtResource("5_t76xc"), ExtResource("6_ey1uy"), ExtResource("7_hsoem"), ExtResource("8_gd8wh"), ExtResource("9_wwnpu")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -56,7 +47,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1f15t")
-text = "Next wave"
+text = "Chiến đấu"
 
 [node name="ItemContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 custom_minimum_size = Vector2(500, 200)
@@ -102,7 +93,7 @@ offset_right = 20.0
 offset_bottom = 9.66667
 grow_horizontal = 2
 grow_vertical = 2
-text = "Drop to store"
+text = "KÉO VÀO ĐỂ LƯU VẬT PHẨM"
 
 [node name="Panel3" type="Panel" parent="MarginContainer/Control/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -121,7 +112,7 @@ offset_right = 20.0
 offset_bottom = 9.66667
 grow_horizontal = 2
 grow_vertical = 2
-text = "drop to buy"
+text = "KÉO VÀO ĐỂ BÁN"
 
 [connection signal="pressed" from="MarginContainer/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="on_item_purchased" from="MarginContainer/Control/ItemContainer/Shopcard" to="MarginContainer/Control/Iventory" method="_on_shopcard_on_item_purchased"]

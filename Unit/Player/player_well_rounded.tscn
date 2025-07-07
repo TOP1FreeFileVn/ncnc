@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://cmulom061bddn" path="res://Unit/Player/unit.tscn" id="1_lamv6"]
 [ext_resource type="Script" uid="uid://c54b3c0dfmh2w" path="res://Unit/Player/Player.gd" id="2_05p0i"]
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="3_e65kj"]
 [ext_resource type="Resource" uid="uid://b7g587m0xvx5e" path="res://Resource/Units/Players/stats_player_well_rounded.tres" id="3_wwarw"]
 [ext_resource type="Script" uid="uid://kcdp65ma2vmi" path="res://Unit/Player/weapon_container.gd" id="5_13khs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ow3wb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wwarw"]
 radius = 7.0
@@ -18,7 +19,7 @@ script = ExtResource("2_05p0i")
 stats = ExtResource("3_wwarw")
 
 [node name="Sprite" parent="Visual" index="1"]
-texture = ExtResource("3_e65kj")
+texture = SubResource("CompressedTexture2D_ow3wb")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -33)

@@ -1,17 +1,20 @@
-[gd_scene load_steps=23 format=3 uid="uid://qai5nwepmuow"]
+[gd_scene load_steps=33 format=3 uid="uid://qai5nwepmuow"]
 
-[ext_resource type="Texture2D" uid="uid://c1osbvdsinaqn" path="res://tải xuống (3).png" id="2_mmmli"]
-[ext_resource type="Texture2D" uid="uid://drtbkt6hy8prw" path="res://BCO.55bb07a9-41f1-4789-ba71-201f5b382743.png" id="2_xlaln"]
-[ext_resource type="Texture2D" uid="uid://bxbjo2v2ixfj6" path="res://tải xuống (2).png" id="3_ukvtv"]
-[ext_resource type="Texture2D" uid="uid://cdkkm35ijln2" path="res://BCO.cac4a8ed-decb-40f0-bdd1-e0661a2c97fa.png" id="3_vtowh"]
-[ext_resource type="Texture2D" uid="uid://ccjfqr64e5k50" path="res://tải xuống (14).png" id="7_p073v"]
-[ext_resource type="FontFile" uid="uid://dmkoe1uhl42dl" path="res://Coiny-Regular.ttf" id="7_w03bs"]
-[ext_resource type="Texture2D" uid="uid://c1int006g6ems" path="res://tải xuống (15).png" id="8_j5dmj"]
-[ext_resource type="Texture2D" uid="uid://b5431qkvc63va" path="res://tải xuống (16).png" id="11_gtixh"]
+[ext_resource type="Texture2D" uid="uid://c1osbvdsinaqn" path="res://assets/tải xuống (3).png" id="2_mmmli"]
+[ext_resource type="Texture2D" uid="uid://drtbkt6hy8prw" path="res://assets/BCO.55bb07a9-41f1-4789-ba71-201f5b382743.png" id="2_xlaln"]
+[ext_resource type="Texture2D" uid="uid://bxbjo2v2ixfj6" path="res://assets/tải xuống (2).png" id="3_ukvtv"]
+[ext_resource type="Texture2D" uid="uid://cdkkm35ijln2" path="res://assets/BCO.cac4a8ed-decb-40f0-bdd1-e0661a2c97fa.png" id="3_vtowh"]
+[ext_resource type="Texture2D" uid="uid://ccjfqr64e5k50" path="res://assets/tải xuống (14).png" id="7_p073v"]
+[ext_resource type="FontFile" uid="uid://dmkoe1uhl42dl" path="res://assets/Coiny-Regular.ttf" id="7_w03bs"]
+[ext_resource type="Texture2D" uid="uid://c1int006g6ems" path="res://assets/tải xuống (15).png" id="8_j5dmj"]
+[ext_resource type="Texture2D" uid="uid://b5431qkvc63va" path="res://assets/tải xuống (16).png" id="11_gtixh"]
 [ext_resource type="Texture2D" uid="uid://cprgkpjoe7j8e" path="res://Photo/tải xuống (27).png" id="11_i6xop"]
-[ext_resource type="Texture2D" uid="uid://bw1xg8qsxp1e" path="res://tải xuống (18).png" id="11_or5wt"]
-[ext_resource type="Texture2D" uid="uid://bqd8fslwwvmy6" path="res://tải xuống (17).png" id="11_yx4l6"]
+[ext_resource type="Texture2D" uid="uid://bw1xg8qsxp1e" path="res://assets/tải xuống (18).png" id="11_or5wt"]
+[ext_resource type="Texture2D" uid="uid://bqd8fslwwvmy6" path="res://assets/tải xuống (17).png" id="11_yx4l6"]
 [ext_resource type="Script" uid="uid://c78v050se081p" path="res://Adventure/label.gd" id="12_t3ucs"]
+[ext_resource type="Texture2D" uid="uid://b3bmm4mbs0x8j" path="res://Photo/arrow_decorative_n.png" id="13_wu321"]
+[ext_resource type="Script" uid="uid://bcjx70hk5gets" path="res://Adventure/arrow_top.gd" id="14_amrec"]
+[ext_resource type="Script" uid="uid://cxwr6evf7sqa3" path="res://Adventure/arrow_bottom.gd" id="15_6ut8t"]
 
 [sub_resource type="GDScript" id="GDScript_g4tan"]
 script/source = "extends Control
@@ -37,20 +40,61 @@ func _on_achievement_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://Adventure/MapAdventure.tscn\")
+	get_tree().change_scene_to_file(\"res://Unit/Arena/arena.tscn\")
 
-func _ready():
-	$TextureRect/Setting/SettingBoard.hide()
-	$TextureRect/Setting.pressed.connect(_on_setting_pressed)
+
+	
 
 
 
 func _on_setting_pressed() -> void:
-	$TextureRect/Setting/SettingBoard.show()
+	$TextureRect/Map/Setting/SettingBoard.show()
 
 
 func _on_save_pressed() -> void:
-	$TextureRect/Setting/SettingBoard.hide()
+	$TextureRect/Map/Setting/SettingBoard.hide()
+
+
+
+
+
+
+
+var current_map_index := 0
+var maps := []
+
+func _ready():
+	# Trỏ đúng đến các node bản đồ
+	$TextureRect/Map/Setting/SettingBoard.hide()
+	$TextureRect/Map/Setting.pressed.connect(_on_setting_pressed)
+	maps = [
+		$TextureRect/Map/Map1,
+		$TextureRect/Map/Map2,
+		$TextureRect/Map/Map3
+	]
+
+	# Ẩn các map trừ map đầu tiên
+	_update_visible_map()
+
+	# Gắn sự kiện cho nút mũi tên
+	$TextureRect/Arrow/ArrowTop.pressed.connect(_on_arrow_top_pressed)
+	$TextureRect/Arrow/ArrowBottom.pressed.connect(_on_arrow_bottom_pressed)
+
+func _update_visible_map():
+	for i in range(maps.size()):
+		maps[i].visible = (i == current_map_index)
+
+func _on_arrow_top_pressed():
+	current_map_index -= 1
+	if current_map_index < 0:
+		current_map_index = maps.size() - 1
+	_update_visible_map()
+
+func _on_arrow_bottom_pressed():
+	current_map_index += 1
+	if current_map_index >= maps.size():
+		current_map_index = 0
+	_update_visible_map()
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3ucs"]
@@ -73,6 +117,67 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="Theme" id="Theme_vtowh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pvai"]
+bg_color = Color(0.205162, 0.231103, 0.263523, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtixh"]
+bg_color = Color(0.185025, 0.185025, 0.185025, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vu4qg"]
+load_path = "res://.godot/imported/arrow_decorative_n.png-169d862ffdeacc7b179350af97660658.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1o8j"]
+bg_color = Color(0.179288, 0.179288, 0.179288, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36qx2"]
+bg_color = Color(0.265846, 0.265846, 0.265846, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lerw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o641i"]
+bg_color = Color(0.76662, 0.76662, 0.76662, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bccjd"]
+bg_color = Color(0.814005, 0.749762, 0.52226, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aockx"]
+bg_color = Color(0.678732, 0.61312, 0.379847, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmd5d"]
 bg_color = Color(0.216621, 0.216621, 0.216621, 1)
 corner_radius_top_left = 25
@@ -93,22 +198,6 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
-
-[sub_resource type="Theme" id="Theme_vtowh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2pvai"]
-bg_color = Color(0.205162, 0.231103, 0.263523, 1)
-corner_radius_top_left = 13
-corner_radius_top_right = 13
-corner_radius_bottom_right = 13
-corner_radius_bottom_left = 13
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtixh"]
-bg_color = Color(0.185025, 0.185025, 0.185025, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
 
 [node name="Uimain" type="Control"]
 layout_mode = 3
@@ -169,6 +258,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_amrec")
 
 [node name="Label" type="Label" parent="TextureRect/Identity"]
 z_index = 2
+layout_mode = 0
 offset_left = 142.0
 offset_top = 43.0
 offset_right = 274.0
@@ -178,101 +268,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6ut8t")
 text = "Tomsky12"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Setting" type="TextureButton" parent="TextureRect"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 163.0
-offset_right = 131.0
-offset_bottom = 327.0
-texture_normal = ExtResource("11_i6xop")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="SettingBoard" type="Label" parent="TextureRect/Setting"]
-visible = false
-layout_mode = 0
-offset_left = 139.0
-offset_top = 156.0
-offset_right = 572.0
-offset_bottom = 348.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_mmd5d")
-script = ExtResource("12_t3ucs")
-
-[node name="Control" type="Control" parent="TextureRect/Setting/SettingBoard"]
-anchors_preset = 0
-offset_left = 13.0
-offset_top = 12.0
-offset_right = 403.0
-offset_bottom = 158.0
-
-[node name="MusicSlider" type="HSlider" parent="TextureRect/Setting/SettingBoard/Control"]
-z_index = 1
-custom_minimum_size = Vector2(250, 100)
-layout_mode = 2
-offset_left = 144.0
-offset_top = 5.0
-offset_right = 394.0
-offset_bottom = 105.0
-pivot_offset = Vector2(0, 10)
-size_flags_vertical = 1
-size_flags_stretch_ratio = 0.0
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="Label" type="Label" parent="TextureRect/Setting/SettingBoard/Control/MusicSlider"]
-z_index = 1
-layout_mode = 0
-offset_left = -136.0
-offset_top = 37.0
-offset_right = -12.0
-offset_bottom = 56.0
-theme_override_font_sizes/font_size = 25
-text = "Nhạc nền "
-
-[node name="SFXSlider" type="HSlider" parent="TextureRect/Setting/SettingBoard/Control"]
-z_index = 1
-layout_mode = 2
-offset_left = 144.0
-offset_top = 95.0
-offset_right = 394.0
-offset_bottom = 111.0
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="Label2" type="Label" parent="TextureRect/Setting/SettingBoard/Control/SFXSlider"]
-layout_mode = 0
-offset_left = -140.0
-offset_top = -5.0
-offset_right = -12.0
-offset_bottom = 15.0
-theme_override_font_sizes/font_size = 25
-text = "Âm thanh "
-
-[node name="Save" type="Button" parent="TextureRect/Setting/SettingBoard"]
-layout_mode = 0
-offset_left = 161.0
-offset_top = 170.0
-offset_right = 271.0
-offset_bottom = 209.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxFlat_wu321")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wu321")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_wu321")
-theme_override_styles/normal = SubResource("StyleBoxFlat_wu321")
-text = " Lưu "
-
-[node name="Label" type="Label" parent="TextureRect/Setting"]
-z_index = -1
-layout_mode = 0
-offset_left = -7.0
-offset_top = 22.0
-offset_right = 120.0
-offset_bottom = 137.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_laf8v")
 
 [node name="ColorRect" type="ColorRect" parent="TextureRect"]
 layout_mode = 1
@@ -510,10 +505,185 @@ theme_override_font_sizes/font_size = 25
 text = "Thành Tựu
 "
 
-[connection signal="pressed" from="TextureRect/Setting" to="." method="_on_setting_pressed"]
-[connection signal="pressed" from="TextureRect/Setting/SettingBoard/Save" to="." method="_on_save_pressed"]
+[node name="Arrow" type="Control" parent="TextureRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 175.0
+offset_top = 185.0
+offset_right = 657.0
+offset_bottom = 1034.0
+scale = Vector2(0.8, 0.8)
+
+[node name="ArrowTop" type="TextureButton" parent="TextureRect/Arrow"]
+layout_mode = 0
+offset_left = 647.5
+offset_top = 396.25
+offset_right = 750.5
+offset_bottom = 488.25
+rotation = 1.5708
+texture_normal = ExtResource("13_wu321")
+texture_pressed = ExtResource("13_wu321")
+texture_hover = SubResource("CompressedTexture2D_vu4qg")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("14_amrec")
+
+[node name="ArrowBottom" type="TextureButton" parent="TextureRect/Arrow"]
+layout_mode = 0
+offset_left = -93.75
+offset_top = 393.75
+offset_right = 9.25001
+offset_bottom = 485.75
+rotation = 1.5708
+texture_normal = ExtResource("13_wu321")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+script = ExtResource("15_6ut8t")
+
+[node name="Map" type="Control" parent="TextureRect"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 127.0
+offset_top = 312.0
+offset_right = 710.0
+offset_bottom = 904.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Map1" type="Button" parent="TextureRect/Map"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 575.0
+offset_bottom = 580.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_c1o8j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_36qx2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c1o8j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1o8j")
+
+[node name="Map2" type="Button" parent="TextureRect/Map"]
+visible = false
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 575.0
+offset_bottom = 580.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_2lerw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o641i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2lerw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2lerw")
+
+[node name="Map3" type="Button" parent="TextureRect/Map"]
+visible = false
+layout_mode = 2
+offset_left = 15.0
+offset_top = 20.0
+offset_right = 575.0
+offset_bottom = 580.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_bccjd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aockx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bccjd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bccjd")
+
+[node name="Setting" type="TextureButton" parent="TextureRect/Map"]
+layout_mode = 0
+offset_left = -126.25
+offset_top = -210.0
+offset_right = -16.25
+offset_bottom = -46.0
+texture_normal = ExtResource("11_i6xop")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SettingBoard" type="Label" parent="TextureRect/Map/Setting"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 0
+offset_left = 107.5
+offset_top = 338.75
+offset_right = 707.5
+offset_bottom = 638.75
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmd5d")
+script = ExtResource("12_t3ucs")
+
+[node name="Control" type="Control" parent="TextureRect/Map/Setting/SettingBoard"]
+anchors_preset = 0
+offset_left = 81.75
+offset_top = 44.25
+offset_right = 471.75
+offset_bottom = 190.25
+
+[node name="MusicSlider" type="HSlider" parent="TextureRect/Map/Setting/SettingBoard/Control"]
+z_index = 1
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+offset_left = 144.0
+offset_top = 5.0
+offset_right = 394.0
+offset_bottom = 105.0
+pivot_offset = Vector2(0, 10)
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="TextureRect/Map/Setting/SettingBoard/Control/MusicSlider"]
+z_index = 1
+layout_mode = 0
+offset_left = -136.0
+offset_top = 37.0
+offset_right = -12.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 25
+text = "Nhạc nền "
+
+[node name="SFXSlider" type="HSlider" parent="TextureRect/Map/Setting/SettingBoard/Control"]
+z_index = 1
+layout_mode = 2
+offset_left = 144.0
+offset_top = 95.0
+offset_right = 394.0
+offset_bottom = 111.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label2" type="Label" parent="TextureRect/Map/Setting/SettingBoard/Control/SFXSlider"]
+layout_mode = 0
+offset_left = -140.0
+offset_top = -5.0
+offset_right = -12.0
+offset_bottom = 15.0
+theme_override_font_sizes/font_size = 25
+text = "Âm thanh "
+
+[node name="Save" type="Button" parent="TextureRect/Map/Setting/SettingBoard"]
+layout_mode = 0
+offset_left = 224.25
+offset_top = 194.25
+offset_right = 334.25
+offset_bottom = 242.25
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxFlat_wu321")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu321")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wu321")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wu321")
+text = " Lưu "
+
+[node name="Label" type="Label" parent="TextureRect/Map/Setting"]
+z_index = -1
+layout_mode = 0
+offset_left = -7.0
+offset_top = 22.0
+offset_right = 120.0
+offset_bottom = 137.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_laf8v")
+
 [connection signal="pressed" from="TextureRect/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="TextureRect/Menu/Shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="TextureRect/Menu/Equipment" to="." method="_on_equipment_pressed"]
 [connection signal="pressed" from="TextureRect/Menu/Event" to="." method="_on_event_pressed"]
 [connection signal="pressed" from="TextureRect/Menu/Achievement" to="." method="_on_achievement_pressed"]
+[connection signal="pressed" from="TextureRect/Map/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="TextureRect/Map/Setting/SettingBoard/Save" to="." method="_on_save_pressed"]

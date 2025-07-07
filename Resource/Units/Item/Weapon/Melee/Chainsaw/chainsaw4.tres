@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://nrabpofasepu" path="res://assets/sprites/Weapons/Melee/Weapon_chainsaw.png" id="1_m5o0x"]
 [ext_resource type="Script" uid="uid://gr7jnc4fo0cs" path="res://Resource/Units/Item/Weapon/ItemWeapon.gd" id="2_hoekk"]
-[ext_resource type="PackedScene" uid="uid://c67k31wjdafam" path="res://Unit/Weapon/Melee/weapon_chainsaw.tscn" id="2_y61kj"]
+[ext_resource type="PackedScene" uid="uid://c2dnjvo554753" path="res://Unit/Weapon/Melee/weapon_ran.tscn" id="2_y61kj"]
 [ext_resource type="Resource" uid="uid://cm2ocbrg6epfa" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsawstats4.tres" id="4_4ipqn"]
 
 [resource]

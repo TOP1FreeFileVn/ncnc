@@ -33,7 +33,7 @@ func start_wave():
 	set_spawn_timer()
 
 func get_wave_text() -> String:
-	return "Wave %s" % wave_index 
+	return "VÒNG %s" % wave_index 
 
 
 func get_wave_timer_text() -> String:

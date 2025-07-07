@@ -83,7 +83,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "MAX HP"
+text = "MÁU TỐI ĐA"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/StatsHealth"]
@@ -118,7 +118,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "MAX HP Regen "
+text = "HỒI MÁU TỐI ĐA"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HpRegen"]
@@ -153,7 +153,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "life steal"
+text = "HÚT MÁU"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/LifeSteal"]
@@ -188,7 +188,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "luck"
+text = "MAY MẮN"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Luck"]
@@ -223,7 +223,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "speed"
+text = "TỐC CHẠY"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Speed"]
@@ -258,7 +258,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "block chance"
+text = "NÉ"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Block chance"]
@@ -293,7 +293,7 @@ offset_top = -14.5
 offset_right = 100.0
 offset_bottom = 14.5
 grow_vertical = 2
-text = "Damage"
+text = "SỨC TẤN CÔNG"
 label_settings = SubResource("LabelSettings_xr6s0")
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/Damage"]

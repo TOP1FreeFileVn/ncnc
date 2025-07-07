@@ -1,16 +1,16 @@
 [gd_scene load_steps=30 format=3 uid="uid://bc06f7cd0gqur"]
 
-[ext_resource type="FontFile" uid="uid://dmkoe1uhl42dl" path="res://Coiny-Regular.ttf" id="2_7p54a"]
-[ext_resource type="Texture2D" uid="uid://c1osbvdsinaqn" path="res://tải xuống (3).png" id="7_rwkw3"]
-[ext_resource type="Texture2D" uid="uid://b5431qkvc63va" path="res://tải xuống (16).png" id="8_nv1dd"]
-[ext_resource type="Texture2D" uid="uid://drtbkt6hy8prw" path="res://BCO.55bb07a9-41f1-4789-ba71-201f5b382743.png" id="8_ynws7"]
-[ext_resource type="Texture2D" uid="uid://cdkkm35ijln2" path="res://BCO.cac4a8ed-decb-40f0-bdd1-e0661a2c97fa.png" id="9_h8l28"]
-[ext_resource type="Texture2D" uid="uid://c1int006g6ems" path="res://tải xuống (15).png" id="9_muya3"]
-[ext_resource type="Texture2D" uid="uid://bw1xg8qsxp1e" path="res://tải xuống (18).png" id="10_nds2m"]
-[ext_resource type="Texture2D" uid="uid://bxbjo2v2ixfj6" path="res://tải xuống (2).png" id="10_okeox"]
-[ext_resource type="Texture2D" uid="uid://14mus6nin0wp" path="res://BCO.098e6bce-1e6b-4c41-85c2-625143052969.png" id="11_7p54a"]
-[ext_resource type="Texture2D" uid="uid://bqd8fslwwvmy6" path="res://tải xuống (17).png" id="11_cwiks"]
-[ext_resource type="Texture2D" uid="uid://ccjfqr64e5k50" path="res://tải xuống (14).png" id="12_nv1dd"]
+[ext_resource type="FontFile" uid="uid://dmkoe1uhl42dl" path="res://assets/Coiny-Regular.ttf" id="2_7p54a"]
+[ext_resource type="Texture2D" uid="uid://c1osbvdsinaqn" path="res://assets/tải xuống (3).png" id="7_rwkw3"]
+[ext_resource type="Texture2D" uid="uid://b5431qkvc63va" path="res://assets/tải xuống (16).png" id="8_nv1dd"]
+[ext_resource type="Texture2D" uid="uid://drtbkt6hy8prw" path="res://assets/BCO.55bb07a9-41f1-4789-ba71-201f5b382743.png" id="8_ynws7"]
+[ext_resource type="Texture2D" uid="uid://cdkkm35ijln2" path="res://assets/BCO.cac4a8ed-decb-40f0-bdd1-e0661a2c97fa.png" id="9_h8l28"]
+[ext_resource type="Texture2D" uid="uid://c1int006g6ems" path="res://assets/tải xuống (15).png" id="9_muya3"]
+[ext_resource type="Texture2D" uid="uid://bw1xg8qsxp1e" path="res://assets/tải xuống (18).png" id="10_nds2m"]
+[ext_resource type="Texture2D" uid="uid://bxbjo2v2ixfj6" path="res://assets/tải xuống (2).png" id="10_okeox"]
+[ext_resource type="Texture2D" uid="uid://14mus6nin0wp" path="res://assets/BCO.098e6bce-1e6b-4c41-85c2-625143052969.png" id="11_7p54a"]
+[ext_resource type="Texture2D" uid="uid://bqd8fslwwvmy6" path="res://assets/tải xuống (17).png" id="11_cwiks"]
+[ext_resource type="Texture2D" uid="uid://ccjfqr64e5k50" path="res://assets/tải xuống (14).png" id="12_nv1dd"]
 
 [sub_resource type="GDScript" id="GDScript_7p54a"]
 script/source = "extends Control
@@ -242,6 +242,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3jalg")
 
 [node name="Label" type="Label" parent="TextureRect/Identity"]
 z_index = 2
+layout_mode = 0
 offset_left = 142.0
 offset_top = 43.0
 offset_right = 274.0

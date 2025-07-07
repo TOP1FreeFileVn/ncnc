@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cyajtjyk3akw"]
+[gd_scene load_steps=14 format=3 uid="uid://cyajtjyk3akw"]
 
 [ext_resource type="Script" uid="uid://c45s5p4cuugct" path="res://Unit/Arena/arena.gd" id="1_6mj2s"]
 [ext_resource type="Texture2D" uid="uid://cy4xfx762bxgb" path="res://assets/sprites/BG.png" id="1_57757"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cw5vnevkhcxjl" path="res://Ui_control_player/touch_control.tscn" id="4_0vlib"]
 [ext_resource type="Script" uid="uid://xn8sf121k6n6" path="res://Resource/Units/Players/camera_2d.gd" id="5_1bw0d"]
 [ext_resource type="PackedScene" uid="uid://b1k4ptskvn33w" path="res://Ui_control_player/ShopCard/shop_panel.tscn" id="5_jsc7y"]
+[ext_resource type="Texture2D" uid="uid://c375eonfk7g0l" path="res://assets/Copilot_20250706_202425 (2).png" id="8_tjcpx"]
 [ext_resource type="Script" uid="uid://crguj36d8qlf0" path="res://Unit/Arena/spawner.gd" id="9_dektv"]
 [ext_resource type="Script" uid="uid://bmm0fp0j67grq" path="res://Resource/Wave/wave_data.gd" id="10_tjcpx"]
 [ext_resource type="Resource" uid="uid://cxxq11d1sowvq" path="res://Resource/Wave/data/way_1to5.tres" id="11_lrex5"]
@@ -56,7 +57,7 @@ offset_top = 37.0
 offset_right = 89.0
 offset_bottom = 97.4167
 grow_horizontal = 2
-text = "WAVE 1"
+text = "vÒNG"
 label_settings = SubResource("LabelSettings_lrex5")
 
 [node name="ShopPanel" parent="GameUI" instance=ExtResource("5_jsc7y")]
@@ -69,6 +70,9 @@ script = ExtResource("5_1bw0d")
 position = Vector2(-1013, 0)
 
 [node name="PlayerWellRounded" parent="." instance=ExtResource("3_6mj2s")]
+
+[node name="Sprite" parent="PlayerWellRounded/Visual" index="1"]
+texture = ExtResource("8_tjcpx")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("9_dektv")
@@ -83,3 +87,4 @@ waves_data = Array[ExtResource("10_tjcpx")]([ExtResource("11_lrex5"), ExtResourc
 [connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]
 
 [editable path="GameUI"]
+[editable path="PlayerWellRounded"]

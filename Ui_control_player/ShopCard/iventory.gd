@@ -5,7 +5,7 @@ var item_held = null
 var current_slot = null
 var can_place = false
 var icon_anchor : Vector2
-@export var weapon : Array[ItemWeapon]
+@export var weapons : Array[ItemWeapon]
 @onready var grid_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var item_scene = preload("res://Ui_control_player/Backpack/item.tscn")
 @onready var scroll_container = $ColorRect/MarginContainer/VBoxContainer/ScrollContainer
@@ -13,7 +13,7 @@ var icon_anchor : Vector2
 func _ready():
 	for i in range(40):
 		create_slot()
-	
+
 	
 	
 
@@ -81,8 +81,7 @@ func spawnItem():
 	new_item.load_item(randomNum)
 	new_item.selected = true
 	item_held = new_item
-	var new_weapon = weapon[randomNum-1]
-	print(Global.player)
+	var new_weapon = weapons[randomNum-1]
 	Global.player.add_weapon(new_weapon)
 func set_grids(a_Slot):
 	for grid in item_held.item_grids:

@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://br2wpycuqxqe4" path="res://Ui_control_player/ShopCard/iventory.gd" id="1_muyk5"]
 [ext_resource type="Script" uid="uid://gr7jnc4fo0cs" path="res://Resource/Units/Item/Weapon/ItemWeapon.gd" id="2_xu8qb"]
-[ext_resource type="Resource" uid="uid://8opp6v23ms7k" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch1.tres" id="3_ir5y2"]
-[ext_resource type="Resource" uid="uid://ddplyrcwwa75p" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw.tres" id="4_0mmxe"]
-[ext_resource type="Resource" uid="uid://b7foa10yke26u" path="res://Resource/Units/Item/Weapon/Range/pisol/Item_Pisol.tres" id="5_0kt5s"]
-[ext_resource type="Resource" uid="uid://d0h5amti8mqye" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw2.tres" id="6_gbu3w"]
+[ext_resource type="Resource" uid="uid://c83grn3idv27w" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw4.tres" id="3_ir5y2"]
+[ext_resource type="Resource" uid="uid://bkvfaprsh4dhi" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw3.tres" id="4_0mmxe"]
+[ext_resource type="Resource" uid="uid://8opp6v23ms7k" path="res://Resource/Units/Item/Weapon/Melee/Punch/punch1.tres" id="5_0kt5s"]
+[ext_resource type="Resource" uid="uid://ddplyrcwwa75p" path="res://Resource/Units/Item/Weapon/Melee/Chainsaw/chainsaw.tres" id="6_gbu3w"]
 
 [node name="Iventory" type="Control" groups=["inv"]]
 custom_minimum_size = Vector2(420, 500)
@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_muyk5")
-weapon = Array[ExtResource("2_xu8qb")]([ExtResource("3_ir5y2"), ExtResource("4_0mmxe"), ExtResource("5_0kt5s"), ExtResource("6_gbu3w")])
+weapons = Array[ExtResource("2_xu8qb")]([ExtResource("3_ir5y2"), ExtResource("4_0mmxe"), ExtResource("5_0kt5s"), ExtResource("6_gbu3w")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(420, 520)
