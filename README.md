@@ -1,4 +1,4 @@
-#CapyBoss
+##CapyBoss
 GameRoughlike kết hợp với sắp xếp inventory
 ## Thành viên nhóm
 - Nguyễn Đình Cường Quốc - Gameplay developer , Game Designer
