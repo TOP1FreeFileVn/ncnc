@@ -1,5 +1,5 @@
 ## CapyBoss
-GameRoughlike kết hợp với sắp xếp inventory
+- GameRoughlike kết hợp với sắp xếp inventory
 ## Thành viên nhóm
 - Nguyễn Đình Cường Quốc - Gameplay developer , Game Designer
 - Trần Duy Lực - GameUI Developer, GameUI Designer
